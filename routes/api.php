@@ -22,3 +22,6 @@ Route::post('getCategories', 'Client\MainController@getCategories');
 
 //AUCTION PAGE
 Route::post('getSubCategories', 'Client\AuctionController@getSubCategories');
+
+//CATEGORY PAGES
+Route::post('getProducts', 'Client\CategoryPages\PagesController@getProducts');

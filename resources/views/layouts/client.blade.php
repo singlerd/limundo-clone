@@ -23,7 +23,7 @@
                         <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Moj Limundo</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                             <a class="dropdown-item" href="#">Lista želja</a>
-                            <a class="dropdown-item" href="#">Moji podaci</a>
+                            <a class="dropdown-item" href="{{route('showUserDataPage')}}">Moji podaci</a>
                             <a class="dropdown-item" href="#">Račun</a>
                         </div>
                     </li>
@@ -66,6 +66,12 @@
                             <a class="nav-link" href="{{route('login')}}"><button class="btn btn-success">Ulaz</button></a>
                         </li>
                     @else
+                        <li class="nav-item">
+                            <a href="{{route('showProfilePage', auth()->user()->username)}}" class="btn btn-link">{{auth()->user()->username}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn btn-link">500 novih predmeta</a>
+                        </li>
                        <li class="nav-item">
                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                @csrf
@@ -73,7 +79,7 @@
                            <a  href="{{ route('logout') }}"
                               onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
-                               <button class="btn btn-danger">{{ __('Odjava') }}</button>
+                               <button class="btn btn-link">{{ __('Odjava') }}</button>
                            </a>
                        </li>
                     @endguest
@@ -135,35 +141,12 @@
         </div>
     </main>
     {{--END CONTENT--}}
-@elseif(\Request::is('auctions'))
+@else
     {{--START CONTENT--}}
-    <main role="main" class="container">
-        <div class="text-center pt-5">
-            <div class="row">
-                <div class="col-12 text-center p-0 m-0">
-                    {{--YIIELD CONTENT--}}
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-    </main>
-    {{--END CONTENT--}}
-@elseif(\Request::is('login'))
-    {{--START CONTENT--}}
-                @yield('content')
-
-
-        </div>
-    </div>
-
-    {{--END CONTENT--}}
-@elseif(\Request::is('register'))
-    {{--START CONTENT--}}
-
-                @yield('content')
-
+    @yield('content')
     {{--END CONTENT--}}
 @endif
+
 
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
   <div class="container">

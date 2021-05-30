@@ -15,4 +15,10 @@ class AuctionController extends Controller
         return view('client.auction', ['categories' => $categories]);
     }
 
+    public function getSubCategories()
+    {
+        $getSubCategories = SubCategory::where('category_id', 1)->get();
+        return response()->json($getSubCategories);
+    }
+
 }

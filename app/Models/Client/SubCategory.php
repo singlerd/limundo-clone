@@ -10,4 +10,9 @@ class SubCategory extends Model
     {
         return $this->belongsTo('App\Models\Client\Category');
     }
+
+    public function product()
+    {
+        return $this->hasOne('App\Models\Client\Product');
+    }
 }

@@ -11,5 +11,6 @@
     <script src="{{ asset('js/client/main.js') }}"></script>
 @elseif(\Request::is('auctions'))
     <script src="{{ asset('js/client/auction.js') }}"></script>
-
+@elseif(\Request::is('odeca/aukcije'))
+    <script src="{{ asset('js/client/category_pages/odeca.js') }}"></script>
 @endif
