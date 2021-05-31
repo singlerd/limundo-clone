@@ -36,4 +36,5 @@ Route::get('clan/{username}', 'Client\ProfileController@index')->name('showProfi
 
 //USER DATA
 Route::get('mojlimundo/mojprofil', 'Client\UserDataController@index')->name('showUserDataPage');
+Route::post('updateProfile/{id}', 'Client\UserDataController@updateProfile')->name('updateProfile');
 
