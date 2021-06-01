@@ -11,8 +11,8 @@ class SubCategory extends Model
         return $this->belongsTo('App\Models\Client\Category');
     }
 
-    public function product()
+    public function products()
     {
-        return $this->hasOne('App\Models\Client\Product');
+        return $this->hasMany('App\Models\Client\Product');
     }
 }

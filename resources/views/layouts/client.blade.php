@@ -96,7 +96,14 @@
             <div class="row">
                 {{--START NAVIGATION FOR CATEGORIES--}}
                 <div class="col-2 text-center p-0 m-0">
+                    {{--START SPINNER--}}
+                    <div class="text-center">
+                        <div class="lds-ripple" id="isSpinSubCategoryLinksMain"><div></div><div></div></div>
+                    </div>
+                    {{--END SPINNER--}}
+
                     <ul class="nav flex-column main-back text-left" id="mainNavigation">
+                    {{--RENDER SUB CATEGORY LINKS--}}
                     </ul>
                     <div class="ads pt-5">
                         <a href="#"><img src="{{asset('/img/reklama1.png')}}" alt="reklama1" width="180"></a>
@@ -107,7 +114,7 @@
                     {{--YIELD CONTENT FROM OTHER BLADE FILE--}}
                     @yield('content')
                 </div>
-                <div class="col-2  p-0 m-0">
+                <div class="col-2 p-0 m-0">
                     <div class="tips">
                         <div class="row text-left">
                             <div class="col-12">

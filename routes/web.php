@@ -38,3 +38,6 @@ Route::get('clan/{username}', 'Client\ProfileController@index')->name('showProfi
 Route::get('mojlimundo/mojprofil', 'Client\UserDataController@index')->name('showUserDataPage');
 Route::post('updateProfile/{id}', 'Client\UserDataController@updateProfile')->name('updateProfile');
 
+//PRODUCT
+Route::get('odeca/kupovina/{slug}', 'Client\ProductController@show')->name('showProductPage');
+

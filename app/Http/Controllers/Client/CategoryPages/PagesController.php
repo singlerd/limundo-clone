@@ -21,4 +21,10 @@ class PagesController extends Controller
         return response()->json($products);
     }
 
+    public function getProductsForWomen()
+    {
+        $productsForWomen = Product::where('sub_category_id', 1)->get();
+        return response()->json($productsForWomen);
+    }
+
 }

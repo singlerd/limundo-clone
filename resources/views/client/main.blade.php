@@ -38,56 +38,16 @@
         </div>
     </div>
 </div>
+{{--START SPINNER--}}
+<div class="text-center">
+    <div class="lds-ripple" id="isSpinSubCategoriesWithProductMain"><div></div><div></div></div>
+</div>
+{{--END SPINNER--}}
 <div class="products pt-5">
     <div class="row">
         <div class="col-6">
-            <div class="row text-left">
-                <div class="col-12">
-                    <div class="row">
-                        <a href="#" class="col-12">Ime</a>
-                        <span class="col-12 money"><strong>10 din</strong></span>
-                    </div>
-                    <hr>
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <a href="#" class="col-12">Ime</a>
-                        <span class="col-12 money"><strong>10 din</strong></span>
-                    </div>
-                    <hr>
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <a href="#" class="col-12">Ime</a>
-                        <span class="col-12 money"><strong>10 din</strong></span>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="row text-left">
-                <div class="col-12">
-                    <div class="row">
-                        <a href="#" class="col-12">Ime</a>
-                        <span class="col-12 money"><strong>10 din</strong></span>
-                    </div>
-                    <hr>
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <a href="#" class="col-12">Ime</a>
-                        <span class="col-12 money"><strong>10 din</strong></span>
-                    </div>
-                    <hr>
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <a href="#" class="col-12">Ime</a>
-                        <span class="col-12 money"><strong>10 din</strong></span>
-                    </div>
-                    <hr>
-                </div>
+            <div class="row text-left" id="getSubCategoriesWithProductMain">
+            {{--RENDER CATEGORIES WITH PRODUCT - main.js--}}
             </div>
         </div>
     </div>
@@ -115,57 +75,41 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="row text-center">
-                        <div class="col-12 pt-3">
-                            <img class="rounded" src="https://picsum.photos/100" alt="Specific Image">
-                        </div>
-                        <div class="col-12 pt-2">
-                            <a href="#">Biciikl</a>
-                        </div>
-                        <div class="col-12 pt-2 money">
-                            <strong>100 din</strong>
-                        </div>
-                        <div class="col-12 pt-2">
-                            <strong>20 ponude</strong>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="getRecommendedProductsMain">
 
-                <div class="col-4">
-                    <div class="row text-center">
-                        <div class="col-12 pt-3">
-                            <img class="rounded" src="https://picsum.photos/100" alt="Specific Image">
-                        </div>
-                        <div class="col-12 pt-2">
-                            <a href="#">Biciikl</a>
-                        </div>
-                        <div class="col-12 pt-2 money">
-                            <strong>100 din</strong>
-                        </div>
-                        <div class="col-12 pt-2">
-                            <strong>20 ponude</strong>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="col-4">--}}
+{{--                    <div class="row text-center">--}}
+{{--                        <div class="col-12 pt-3">--}}
+{{--                            <img class="rounded" src="https://picsum.photos/100" alt="Specific Image">--}}
+{{--                        </div>--}}
+{{--                        <div class="col-12 pt-2">--}}
+{{--                            <a href="#">Biciikl</a>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-12 pt-2 money">--}}
+{{--                            <strong>100 din</strong>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-12 pt-2">--}}
+{{--                            <strong>20 ponude</strong>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="col-4">
-                    <div class="row text-center">
-                        <div class="col-12 pt-3">
-                            <img class="rounded" src="https://picsum.photos/100" alt="Specific Image">
-                        </div>
-                        <div class="col-12 pt-2">
-                            <a href="#">Biciikl</a>
-                        </div>
-                        <div class="col-12 pt-2 money">
-                            <strong>100 din</strong>
-                        </div>
-                        <div class="col-12 pt-2">
-                            <strong>20 ponude</strong>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="col-4">--}}
+{{--                    <div class="row text-center">--}}
+{{--                        <div class="col-12 pt-3">--}}
+{{--                            <img class="rounded" src="https://picsum.photos/100" alt="Specific Image">--}}
+{{--                        </div>--}}
+{{--                        <div class="col-12 pt-2">--}}
+{{--                            <a href="#">Biciikl</a>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-12 pt-2 money">--}}
+{{--                            <strong>100 din</strong>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-12 pt-2">--}}
+{{--                            <strong>20 ponude</strong>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

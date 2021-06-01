@@ -1,6 +1,9 @@
 //REFERENCE TO THE HTML ELEMENT
 const getProductsRef = document.getElementById('getProducts');
 const getProductsReq = new XMLHttpRequest();
+//REFERENCE TO SPINNERS
+let isSpinProductsRef = document.getElementById('isSpinProducts');
+let isSpinSubCategoryLinksRef = document.getElementById('isSpinSubCategoryLinks');
 
 getProductsReq.open('POST', localApi+'getProducts')
 getProductsReq.send();
@@ -9,6 +12,9 @@ getProductsReq.addEventListener('load', function (){
     const data = JSON.parse(this.responseText);
     console.log(data);
 
+    if(data.length > 0) {
+        isSpinProductsRef.style.display = "none"
+    }
 
     for (let i = 0; i < data.length; i++){
 
@@ -30,7 +36,7 @@ getProductsReq.addEventListener('load', function (){
                         <img src="https://picsum.photos/seed/picsum/200/300" alt="product_image" height="200" width="200">
                     </div>
                     <div class="col-6 p-3 text-left">
-                        <h6 class="pt-2"><a href="#">${data[i].name}</a></h6>
+                        <h6 class="pt-2"><a href="kupovina/${data[i].slug}">${data[i].name}</a></h6>
                         <p class="text-grey">${data[i].description}... <a href="#">Detaljnije</a></p>
 
                         <div class="pricing pt-1">
@@ -75,13 +81,37 @@ getSubCategoriesReq.send();
 getSubCategoriesReq.addEventListener('load', function () {
     const data = JSON.parse(this.responseText);
     console.log(data);
+    if(data.length > 0){
+        isSpinSubCategoryLinksRef.style.display = 'none';
+    }
     for (var i = 0; i < data.length; i++) {
         const html =
             `
-                <li class="nav-item"><a class="nav-link hover-link" href="">${data[i].sub_category_name}</a></li>
+                <li class="nav-item"><a class="nav-link hover-link" onclick="trigger()" href="#">${data[i].sub_category_name}</a></li>
             `;
         getSubCategoriesRef.insertAdjacentHTML('beforeend', html)
 
     }
 
 });
+
+
+
+let arr = "";
+
+function trigger(){
+
+    alert('radi');
+    const getProductsForWomenRef = document.getElementById('getProductsForWomen');
+    const getProductsForWomenReq = new XMLHttpRequest();
+
+    //GET SUBCATEGORIES
+    getProductsForWomenReq.open('POST', localApi+'getProductsForWomen')
+    getProductsForWomenReq.send();
+
+    getProductsForWomenReq.addEventListener('load', function () {
+    const data = JSON.parse(this.responseText);
+    console.log(data)
+
+    });
+}

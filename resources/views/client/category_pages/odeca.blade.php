@@ -1,19 +1,27 @@
 @extends('layouts.client')
 @section('content')
+
 <main role="main" class="container pt-2">
         <div class="row">
             <div class="col-3">
                 <div class="navigation text-left">
-                    <ul class="nav flex-column main-back" id="getSubCategoryNavigation">
+                    {{--START SPINNER--}}
+                    <div class="text-center">
+                        <div class="lds-ripple" id="isSpinSubCategoryLinks"><div></div><div></div></div>
+                    </div>
 
+                    {{--END SPINNER--}}
+                    <ul class="nav flex-column main-back" id="getSubCategoryNavigation">
+                    {{--RENDER SUB CATEGORY LINKS - odeca.js--}}
                     </ul>
                 </div>
             </div>
             <div class="col-9">
+
                 <div class="col-12 text-left pb-3">
                     <h3>Odeća</h3>
                 </div>
-            {{--START ACCORDION--}}
+                {{--START ACCORDION--}}
                 <div id="accordion pb-2">
                     <div class="card">
                         <div class="card-header bg-white" id="headingOne"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -51,8 +59,14 @@
                 </div>
                 {{--END ACCORDION--}}
                 <div class="row pt-3">
-
                     <div class="col-12 p-3" id="getProducts">
+                    {{--START SPINNER--}}
+                        <div class="text-center">
+                            <div class="lds-ripple" id="isSpinProducts"><div></div><div></div></div>
+                        </div>
+
+                    {{--END SPINNER--}}
+
                     {{--RENDER PRODUCTS - odeca.js--}}
                     </div>
                 </div>

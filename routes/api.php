@@ -18,10 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 //MAIN PAGE
-Route::post('getCategories', 'Client\MainController@getCategories');
+Route::post('getCategoriesMain', 'Client\MainController@getCategories');
+Route::post('getSubCategoriesWithProducts', 'Client\MainController@getSubCategoriesWithProducts');
+Route::post('getRecommendedProducts', 'Client\MainController@getRecommendedProducts');
 
 //AUCTION PAGE
 Route::post('getSubCategories', 'Client\AuctionController@getSubCategories');
 
 //CATEGORY PAGES
 Route::post('getProducts', 'Client\CategoryPages\PagesController@getProducts');
+Route::post('getProductsForWomen', 'Client\CategoryPages\PagesController@getProductsForWomen');
