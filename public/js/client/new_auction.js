@@ -20,9 +20,12 @@ submitNewAuctionBtnRef.addEventListener('click',  function (e){
 
     // Create a new auction
     let data = new FormData()
-    const inputFiles = document.querySelector('input[type="file"]')
+    const totalfiles = document.getElementById('files').files.length
 
-    data.append('files', inputFiles.files);
+    for (var index = 0; index < totalfiles; index++) {
+        data.append("files[]", document.getElementById('files').files[index]);
+    }
+
     data.append('sub_category_id', 1);
     data.append('name', name);
     data.append('description', description);
@@ -38,6 +41,10 @@ submitNewAuctionBtnRef.addEventListener('click',  function (e){
     }).then(response => response.json())
         .then(data => {
             alert('Success:', data);
+            document.getElementById('name').value = "";
+            document.getElementById('description').value = "";
+            document.getElementById('product_state').value = "";
+            document.getElementById('price').value = "";
         })
         .catch((error) => {
             alert('Error:', error);

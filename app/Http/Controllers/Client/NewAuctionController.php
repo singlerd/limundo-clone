@@ -24,20 +24,18 @@ class NewAuctionController extends Controller
         $product->price = $request->price;
         $product->slug = $request->slug;
        //HANDLING MULTIPLE FILES TODO
+        $data = array();
         if($request->hasfile('files'))
         {
-            dd('if');
-
-            foreach($request->file('files') as $file)
-            {
-                dd('ovde');
-                $name = time().'.'.$file->extension();
-                $file->move(public_path().'/files/', $name);
-                $data[] = $name;
-
+            foreach ($request->file('files') as $file){
+                $imagePath = $file;
+                $imageName = time().'.'.$imagePath->getClientOriginalName();
+                $imagePath->move(public_path('files'), $imageName);
+                $data[] = $imageName;
             }
+
         }
-        $product->files=json_encode($data);
+        $product->files = json_encode($data);
         $product->save();
         return response()->json($product);
 

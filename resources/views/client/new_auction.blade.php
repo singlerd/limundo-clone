@@ -36,7 +36,7 @@
                                 </div>
 
                                 <div class="col-10 pt-3">
-                                    <input id='files' type='file' name="files" multiple/>
+                                    <input id='files' type='file' name="files[]" multiple/>
                                     <output id='result' />
                                 </div>
                                 <div class="col-2 pt-3">
