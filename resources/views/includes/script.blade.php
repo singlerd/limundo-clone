@@ -13,4 +13,6 @@
     <script src="{{ asset('js/client/auction.js') }}"></script>
 @elseif(\Request::is('odeca/aukcije'))
     <script src="{{ asset('js/client/category_pages/odeca.js') }}"></script>
+@elseif(\Request::is('MojLimundo/NovaAukcija'))
+    <script src="{{ asset('js/client/new_auction.js') }}"></script>
 @endif

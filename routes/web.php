@@ -41,3 +41,6 @@ Route::post('updateProfile/{id}', 'Client\UserDataController@updateProfile')->na
 //PRODUCT
 Route::get('odeca/kupovina/{slug}', 'Client\ProductController@show')->name('showProductPage');
 
+//NEW AUCTION
+Route::get('MojLimundo/NovaAukcija', 'Client\NewAuctionController@index')->name('showNewAuctionPage');
+

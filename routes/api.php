@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 //MAIN PAGE
 Route::post('getCategoriesMain', 'Client\MainController@getCategories');
 Route::post('getSubCategoriesWithProducts', 'Client\MainController@getSubCategoriesWithProducts');
@@ -28,3 +29,6 @@ Route::post('getSubCategories', 'Client\AuctionController@getSubCategories');
 //CATEGORY PAGES
 Route::post('getProducts', 'Client\CategoryPages\PagesController@getProducts');
 Route::post('getProductsForWomen', 'Client\CategoryPages\PagesController@getProductsForWomen');
+
+//NEW AUCTION PAGE
+Route::post('addNewAuction', 'Client\NewAuctionController@addNewAuction');

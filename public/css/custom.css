@@ -349,3 +349,20 @@ a{
     }
 }
 /*END SPINNER*/
+
+.font-s14{
+    font-size: 14px;
+}
+
+.thumbnail {
+    height: 100px;
+    margin: 10px;
+}
+
+.pricingSize{
+    width: 250px;
+}
+
+.borderless td, .borderless th {
+    border: none;
+}

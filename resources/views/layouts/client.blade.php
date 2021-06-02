@@ -48,7 +48,7 @@
             <div class="collapse navbar-collapse flex-grow-0">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><button class="btn btn-danger">Besplatno postavi predmet</button></a>
+                        <a class="nav-link" href="{{route('showNewAuctionPage')}}"><button class="btn btn-danger">Besplatno postavi predmet</button></a>
                     </li>
                     <li class="nav-item p-2">
                         <input class="form-control" type="text" placeholder="Pretraži limundo...">
