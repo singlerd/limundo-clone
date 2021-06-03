@@ -85,24 +85,16 @@
 
                                 <div class="col-5 pt-3">
                                     <div class="form-group">
-                                        <select multiple class="form-control" id="exampleFormControlSelect2">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <select multiple class="form-control" id="select1" name="select1">
+
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-5 pt-3">
                                     <div class="form-group">
-                                        <select multiple class="form-control" id="exampleFormControlSelect2">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <select multiple class="form-control" id="select2" name="select2">
+
                                         </select>
                                     </div>
                                 </div>
@@ -137,26 +129,26 @@
                                     <hr>
                                 </div>
 
-                                <div class="col-6 pt-3">
+                                <div class="col-6 pt-3" id="payment_methods">
                                     <h6>Načini plaćanja</h6>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="account">
-                                        <label class="custom-control-label" for="account">Tekući račun (pre slanja)</label>
+                                        <input type="checkbox" class="custom-control-input" id="racun" value="2">
+                                        <label class="custom-control-label" for="racun">Tekući račun (pre slanja)</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="postnet">
+                                        <input type="checkbox" class="custom-control-input" id="postnet" name="payment_methods[]">
                                         <label class="custom-control-label" for="postnet">PostNet (pre slanja)</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="other">
+                                        <input type="checkbox" class="custom-control-input" id="other" name="payment_methods[]">
                                         <label class="custom-control-label" for="other">Ostalo (pre slanja)</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="take_it">
+                                        <input type="checkbox" class="custom-control-input" id="take_it" name="payment_methods[]">
                                         <label class="custom-control-label" for="take_it">Pouzećem</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="personally">
+                                        <input type="checkbox" class="custom-control-input" id="personally" name="payment_methods[]">
                                         <label class="custom-control-label" for="personally">Lično</label>
                                     </div>
                                 </div>

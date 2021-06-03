@@ -32,7 +32,7 @@ Route::get('auctions', 'Client\AuctionController@index')->name('showAuctionPage'
 Route::get('{slug}/aukcije', 'Client\CategoryPages\PagesController@getPage');
 
 //PROFILE
-Route::get('clan/{username}', 'Client\ProfileController@index')->name('showProfilePage');
+Route::get('clan/{username}', 'Client\ProfileController@show')->name('showProfilePage');
 
 //USER DATA
 Route::get('mojlimundo/mojprofil', 'Client\UserDataController@index')->name('showUserDataPage');

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client\Category;
 use App\Models\Client\Product;
+use App\Models\Client\SubCategory;
 use Illuminate\Http\Request;
 
 class NewAuctionController extends Controller
@@ -22,8 +24,10 @@ class NewAuctionController extends Controller
         $product->product_state = $request->product_state;
         $product->lager = $request->lager;
         $product->price = $request->price;
-        $product->slug = $request->slug;
-       //HANDLING MULTIPLE FILES TODO
+        $toLowerSlug = strtolower($request->name);
+        $replaceStr = str_replace(" ", "-",$toLowerSlug);
+        $product->slug = $replaceStr;
+
         $data = array();
         if($request->hasfile('files'))
         {
@@ -33,12 +37,21 @@ class NewAuctionController extends Controller
                 $imagePath->move(public_path('files'), $imageName);
                 $data[] = $imageName;
             }
-
         }
         $product->files = json_encode($data);
         $product->save();
         return response()->json($product);
+    }
 
+    public function listCategoriesForSelect()
+    {
+        $categories = Category::all();
+        return response()->json($categories);
+    }
 
+    public function listSubCategoriesForSelect()
+    {
+        $sub_categories = SubCategory::all();
+        return response()->json($sub_categories);
     }
 }

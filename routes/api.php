@@ -32,3 +32,5 @@ Route::post('getProductsForWomen', 'Client\CategoryPages\PagesController@getProd
 
 //NEW AUCTION PAGE
 Route::post('addNewAuction', 'Client\NewAuctionController@addNewAuction');
+Route::post('listCategoriesForSelect', 'Client\NewAuctionController@listCategoriesForSelect');
+Route::post('listSubCategoriesForSelect', 'Client\NewAuctionController@listSubCategoriesForSelect');
