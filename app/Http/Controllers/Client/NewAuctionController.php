@@ -28,6 +28,21 @@ class NewAuctionController extends Controller
         $replaceStr = str_replace(" ", "-",$toLowerSlug);
         $product->slug = $replaceStr;
 
+        //HANDLING MULTIPLE CHECKBOXES FOR PAYMENT METHODS
+        $payment_arr = array();
+        foreach ($request->payment_methods as $payment){
+            $payment_arr[] = $payment;
+            $product->payment_methods = json_encode($payment_arr);
+        }
+
+        //HANDLING MULTIPLE CHECKBOXES FOR SENDING METHODS
+        $sending_arr = array();
+        foreach ($request->sending_methods as $sending){
+            $sending_arr[] = $sending;
+            $product->sending_methods = json_encode($sending_arr);
+        }
+
+        //HANDLING MULTIPLE IMAGES
         $data = array();
         if($request->hasfile('files'))
         {
@@ -38,6 +53,7 @@ class NewAuctionController extends Controller
                 $data[] = $imageName;
             }
         }
+
         $product->files = json_encode($data);
         $product->save();
         return response()->json($product);

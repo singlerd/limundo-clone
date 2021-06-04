@@ -1,9 +1,28 @@
-//DROPZONE FOR FILE UPLOAD
-Dropzone.options.dropzoneForm = {
-    autoProcessQueue : false,
-    acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
 
-};
+//REFERENCE TO PAYMENT METHODS CHECKBOXES
+let payment_methods_checks = [];
+$("input[type='checkbox']", $('#payment_methods')).click(function(){
+    if(this.checked){
+        payment_methods_checks.push(this.value);
+    }
+    else {
+        var index = payment_methods_checks.indexOf(this.value);
+        payment_methods_checks.splice(index, 1);
+    }
+});
+
+//REFERENCE TO SENDING METHODS CHECKBOXES
+let sending_methods_checks = [];
+$("input[type='checkbox']", $('#sending_methods')).click(function(){
+    if(this.checked){
+        sending_methods_checks.push(this.value);
+    }
+    else {
+        var index = sending_methods_checks.indexOf(this.value);
+        sending_methods_checks.splice(index, 1);
+    }
+});
+
 const submitNewAuctionBtnRef = document.getElementById('submitNewAuctionBtn')
 const newAuctionFormRef = document.getElementById('newAuctionForm')
 
@@ -18,21 +37,7 @@ submitNewAuctionBtnRef.addEventListener('click',  function (e){
    const product_state = document.getElementById('product_state').value;
    const price = document.getElementById('price').value;
    const sub_category_id = document.getElementById('select2').value;
-
-   //TODO payment methods
-    // function inputsToArray (inputs) {
-    //     var arr = [];
-    //     for (var i = 0; i < inputs.length; i++) {
-    //         if (inputs[i].checked)
-    //             arr.push(inputs[i].value);
-    //     }
-    //     return arr;
-    // }
-    //
-    // const payment_methods = document.getElementById('payment_methods')
-    // let contactArray = inputsToArray(payment_methods.children);
-    //     console.log(contactArray);
-
+   const lager = document.getElementById('lager').value;
 
     // Create a new auction
     let data = new FormData()
@@ -42,13 +47,18 @@ submitNewAuctionBtnRef.addEventListener('click',  function (e){
     for (var index = 0; index < totalfiles; index++) {
         data.append("files[]", document.getElementById('files').files[index]);
     }
+    // console.log(payment_methods_checks)
+    // console.log(sending_methods_checks)
 
     data.append('sub_category_id', sub_category_id);
     data.append('name', name);
     data.append('description', description);
     data.append('product_state', product_state);
-    data.append('lager', 2);
+    data.append('lager', lager);
     data.append('price', price);
+    data.append('payment_methods[]', payment_methods_checks.join(","));
+    data.append('sending_methods[]', sending_methods_checks.join(","));
+
     // data.append('slug', 'slujhahsd');
     fetch(localApi + 'addNewAuction', {
         headers: { "Content-Type": "application/json; charset=utf-8" },
