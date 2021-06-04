@@ -20,6 +20,9 @@
                                 </div>
                                 <div class="col-6 pt-3">
                                     <input type="text" class="form-control" id="name" name="name">
+                                    <div class="errorHandling" id="errorName">
+                                        Naslov predmeta je obavezno polje
+                                    </div>
                                 </div>
                                 <div class="col-4 pt-4 font-s14">
                                     <i>Duži naslov = kupac će pre naći predmet u pretrazi</i>
@@ -29,6 +32,9 @@
                                 </div>
                                 <div class="col-10 pt-3">
                                     <textarea type="text" class="form-control"  id="description" rows="5" name="description"> </textarea>
+                                    <div class="errorHandling" id="errorDesc">
+                                        Opis predmeta je obavezno polje
+                                    </div>
                                 </div>
 
                                 <div class="col-2 pt-3">
@@ -38,6 +44,9 @@
                                 <div class="col-10 pt-3">
                                     <input id='files' type='file' name="files[]" multiple/>
                                     <output id='result' />
+                                    <div class="errorHandling" id="errorFiles">
+                                        Opis predmeta je obavezno polje
+                                    </div>
                                 </div>
                                 <div class="col-2 pt-3">
                                     <h6>Stanje predmeta</h6>
@@ -70,6 +79,10 @@
                                             Kolekcionarski primerak
                                         </label>
                                     </div>
+
+                                    <div class="errorHandling" id="errorProductState">
+                                        Izaberite jednu opciju
+                                    </div>
                                 </div>
 
                                 <div class="col-4 pt-3">
@@ -88,6 +101,9 @@
                                         <select multiple class="form-control" id="select1" name="select1">
 
                                         </select>
+                                        <div class="errorHandling" id="errorSelect1">
+                                            Izaberite jednu opciju
+                                        </div>
                                     </div>
                                 </div>
 
@@ -110,6 +126,9 @@
                                     <div class="card p-5 bg-grey">
                                         <label for="price">Fiksna Cena</label>
                                         <input type="text" class="form-control" id="price" name="price">
+                                        <div class="errorHandling" id="errorPrice">
+                                            Cena predmeta je obavezno polje
+                                        </div>
                                     </div>
 
                                 </div>

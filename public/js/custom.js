@@ -100,3 +100,34 @@ window.onload = function() {
 }
 
 
+let addToFavoriteRef = document.getElementById('addToFavorite');
+const addToFavoriteReq = new XMLHttpRequest();
+
+//GET SUBCATEGORIES
+// addToFavoriteReq.open('POST', localApi+'addToFavorite')
+// addToFavoriteReq.send();
+
+addToFavoriteRef.addEventListener('click', function () {
+    let data = new FormData()
+    data.append('user_id', 1)
+    data.append('product_id', 1)
+    // data.append('slug', 'slujhahsd');
+    fetch(localApi + 'addToFavorite', {
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+        method: 'POST',
+        body: data,
+        mode: 'no-cors'
+    }).then(response => response.json())
+        .then(data => {
+            // success
+            iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste dodali novi predmet.'});
+            window.setTimeout(function(){
+                // Move to a main page after 3 seconds
+                window.location.href = local + 'main';
+            }, 3000);
+        })
+        .catch((error) => {
+            // error
+            iziToast.error({title: 'Greška', message: 'Niste ispunili sva polja'});
+        });
+});

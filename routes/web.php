@@ -31,16 +31,22 @@ Route::get('auctions', 'Client\AuctionController@index')->name('showAuctionPage'
 //GET CATEGORY PAGES
 Route::get('{slug}/aukcije', 'Client\CategoryPages\PagesController@getPage');
 
-//PROFILE
-Route::get('clan/{username}', 'Client\ProfileController@show')->name('showProfilePage');
-
-//USER DATA
-Route::get('mojlimundo/mojprofil', 'Client\UserDataController@index')->name('showUserDataPage');
-Route::post('updateProfile/{id}', 'Client\UserDataController@updateProfile')->name('updateProfile');
-
 //PRODUCT
 Route::get('odeca/kupovina/{slug}', 'Client\ProductController@show')->name('showProductPage');
 
-//NEW AUCTION
-Route::get('MojLimundo/NovaAukcija', 'Client\NewAuctionController@index')->name('showNewAuctionPage');
+
+Route::group(['middleware' => ['auth']], function() {
+    //PROFILE
+    Route::get('clan/{username}', 'Client\ProfileController@show')->name('showProfilePage');
+
+    //USER DATA
+    Route::get('mojlimundo/mojprofil', 'Client\UserDataController@index')->name('showUserDataPage');
+    Route::post('updateProfile/{id}', 'Client\UserDataController@updateProfile')->name('updateProfile');
+
+    //NEW AUCTION
+    Route::get('MojLimundo/NovaAukcija', 'Client\NewAuctionController@index')->name('showNewAuctionPage');
+
+    //FAVORITES
+    Route::get('MojLimundo/ListaZelja', 'Client\FavoriteController@index')->name('showFavoritesPage');
+});
 

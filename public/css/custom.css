@@ -366,3 +366,8 @@ a{
 .borderless td, .borderless th {
     border: none;
 }
+
+.errorHandling{
+    display: none;
+    color: #E25952;
+}

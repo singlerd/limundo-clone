@@ -30,8 +30,82 @@ const addNewAuctionReq = new XMLHttpRequest();
 addNewAuctionReq.open('POST', localApi+'getRecommendedProducts')
 addNewAuctionReq.send();
 submitNewAuctionBtnRef.addEventListener('click',  function (e){
-
     e.preventDefault();
+
+    const successColor = '#ABC100'
+    const errorColor = '#E25952'
+    //NAME INPUT
+    const errorName = document.getElementById('errorName');
+    const nameInput = document.getElementById('name');
+    if(nameInput.value.length == 0){
+        nameInput.style.borderColor= errorColor;
+        errorName.style.display = 'block';
+    }else{
+        errorName.style.display = 'none';
+        nameInput.style.borderColor= successColor;
+    }
+
+    //DESCRIPTION INPUT
+    const errorDesc = document.getElementById('errorDesc');
+    const descInput = document.getElementById('description');
+    if(descInput.value == 0){
+        descInput.style.borderColor = errorColor;
+        errorDesc.style.display = 'block';
+    }else{
+        errorDesc.style.display = 'none';
+        descInput.style.borderColor= successColor;
+    }
+
+    //FILES INPUT
+    const errorFiles = document.getElementById('errorDesc');
+    const filesInput = document.getElementById('files');
+
+    if(filesInput.value === ""){
+        filesInput.style.borderColor = errorColor;
+        errorFiles.style.display = 'block';
+    }else{
+        errorFiles.style.display = 'none';
+        filesInput.style.borderColor= successColor;
+    }
+
+    //PRODUCT STATE INPUT
+    const errorProductState = document.getElementById('errorProductState');
+    const productStateInput = document.getElementById('product_state');
+
+    if(!productStateInput.checked){
+        filesInput.style.borderColor = errorColor;
+        errorProductState.style.display = 'block';
+    }else{
+        errorProductState.style.display = 'none';
+        filesInput.style.borderColor= successColor;
+    }
+
+    //CATEGORY INPUT - select1
+    const errorSelect1 = document.getElementById('errorSelect1');
+    const select1Input = document.getElementById('select1');
+
+    if(!select1Input.selected){
+        select1Input.style.borderColor = errorColor;
+        errorSelect1.style.display = 'block';
+    }else{
+        errorSelect1.style.display = 'none';
+        select1Input.style.borderColor= successColor;
+    }
+
+
+
+    //PRICE INPUT
+    const errorPrice = document.getElementById('errorPrice');
+    const priceInput = document.getElementById('price');
+
+    if(priceInput.value.length == 0){
+        priceInput.style.borderColor = errorColor;
+        errorPrice.style.display = 'block';
+    }else{
+        errorPrice.style.display = 'none';
+        priceInput.style.borderColor= successColor;
+    }
+
    const name = document.getElementById('name').value;
    const description = document.getElementById('description').value;
    const product_state = document.getElementById('product_state').value;
@@ -67,11 +141,16 @@ submitNewAuctionBtnRef.addEventListener('click',  function (e){
         mode: 'no-cors'
     }).then(response => response.json())
         .then(data => {
-            alert('Success:', data);
-            // window.location.href = local+'main';
+            // success
+            iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste dodali novi predmet.'});
+            window.setTimeout(function(){
+                // Move to a main page after 3 seconds
+                window.location.href = local + 'main';
+            }, 3000);
         })
         .catch((error) => {
-            alert('Error:', error);
+            // error
+            iziToast.error({title: 'Greška', message: 'Niste ispunili sva polja'});
         });
 });
 
@@ -102,9 +181,7 @@ listCategoriesForSelectReq.addEventListener('load', function (){
     data.forEach(category => {
         const html = `<option value="${category.id}">${category.category_name}</option>`;
         listCategoriesForSelectRef.insertAdjacentHTML('beforeend', html);
-
     })
-
 })
 
 

@@ -20,7 +20,7 @@
                             <p>Broj predmeta: 102175189</p>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-light">Ubaci u listu želja</button>
+                            <button class="btn btn-light" id="addToFavorite">Ubaci u listu želja</button>
                         </div>
                         <div class="col-6 pt-3">
                             <p>Preostalo vreme</p>

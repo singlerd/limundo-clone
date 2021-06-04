@@ -34,3 +34,7 @@ Route::post('getProductsForWomen', 'Client\CategoryPages\PagesController@getProd
 Route::post('addNewAuction', 'Client\NewAuctionController@addNewAuction');
 Route::post('listCategoriesForSelect', 'Client\NewAuctionController@listCategoriesForSelect');
 Route::post('listSubCategoriesForSelect', 'Client\NewAuctionController@listSubCategoriesForSelect');
+
+//FAVORITES PAGE
+Route::post('addToFavorite', 'Client\FavoriteController@addToFavorite');
+
