@@ -1,5 +1,8 @@
 @extends('layouts.client')
 @section('content')
+{{--    @php--}}
+{{--        dd($productBySlug->user->profile);--}}
+{{--    @endphp--}}
     <main role="main" class="container pt-2">
         <div class="row">
             <div class="col-8">
@@ -19,41 +22,35 @@
                         <div class="col-12">
                             <p>Broj predmeta: 102175189</p>
                         </div>
-                        <div class="col-12">
-                            <button class="btn btn-light" id="addToFavorite">Ubaci u listu želja</button>
-                        </div>
-                        <div class="col-6 pt-3">
-                            <p>Preostalo vreme</p>
-                        </div>
-                        <div class="col-6 pt-3">
-                            <strong>3 sata, 54 minuta</strong>
-                            <pre>( 1. jun 2021, 21:06h)</pre>
-                        </div>
-                        <div class="col-6">
-                            <p>Broj ponuda</p>
-                        </div>
-                        <div class="col-6">
-                            <a href="#">16 ponuda</a>
-                        </div>
-                       <div class="col-12">
+
+                        @auth
+                            @if($favorited == true)
+                                <div class="col-12">
+                                    <div class="alert alert-info" role="alert">
+                                        Ubacio si u omiljene predmete
+                                    </div>
+                                </div>
+                            @else
+                                <div class="col-12">
+                                    <button class="btn btn-light" onclick="addToFavorite({{$user_id}}, {{$productBySlug->id}})">Ubaci u listu želja</button>
+                                </div>
+                            @endif
+                        @endauth
+                       <div class="col-12 pt-3">
                            <div class="card bg-grey p-3">
                                <div class="row">
                                    <div class="col-6">
-                                       <p>Aktuelna ponuda</p>
+                                       <p>Cena</p>
                                    </div>
                                    <div class="col-6">
                                        <h5>{{$productBySlug->price}}</h5>
                                    </div>
                                </div>
                                <div class="row">
-                                   <div class="col-4">
-                                       <p>Moja ponuda</p>
+                                   <div class="col-6">
                                    </div>
-                                   <div class="col-4">
-                                       <input type="text" name="tender" class="form-control" id="tender" placeholder="(min. 720 din)">
-                                   </div>
-                                   <div class="col-4">
-                                       <button class="btn btn-primary">Licitiraj</button>
+                                   <div class="col-6">
+                                       <button class="btn btn-primary">Kupi predmet</button>
                                    </div>
                                </div>
                            </div>
@@ -63,8 +60,10 @@
                            <p>Slanje paketa</p>
                        </div>
                        <div class="col-6 pt-3">
-                           <p>Slanje paketa</p>
-                       </div>
+                            @php
+                                json_decode($productBySlug->payment_methods)
+                            @endphp
+                        </div>
                         <div class="col-6">
                             <p>Plaćanje</p>
                         </div>
@@ -90,6 +89,7 @@
                    </div>
                </div>
             </div>
+
             <div class="col-4">
                 <div class="card">
                     <div class="card-header">
@@ -98,12 +98,15 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <a href="#">Gojko</a>
+                                <a href="{{route('showProfilePage', $productBySlug->user->username)}}">{{$productBySlug->user->username}}</a>
                             </div>
                         </div>
                         <div class="row pt-3">
-                            <div class="col-12">
-                                Lokacija: Beograd
+                            <div class="col-4">
+                                Lokacija
+                            </div>
+                            <div class="col-8">
+                                {{$productBySlug->user->profile->township}}
                             </div>
                         </div>
                         <div class="row pt-3">

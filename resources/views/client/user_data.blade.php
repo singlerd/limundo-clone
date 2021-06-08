@@ -22,12 +22,24 @@
                     <strong>{{ $message }}</strong>
                 </div>
             @endif
-                @if ($message = Session::get('error'))
-                    <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @endif
+            @if ($message = Session::get('error'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+
+            @if($errors->has('currentPassword'))
+                <div class="alert alert-danger">{{ $errors->first('currentPassword') }}</div>
+            @endif
+
+            @if($errors->has('newPassword'))
+                <div class="alert alert-danger">{{ $errors->first('newPassword') }}</div>
+            @endif
+
+            @if($errors->has('newPasswordAgain'))
+                <div class="alert alert-danger">{{ $errors->first('newPasswordAgain') }}</div>
+            @endif
             <div class="card">
                 <div class="card-header back-gradient-grey text-white">
                     <h6 class="text-to-uppercase">Moji podaci</h6>
@@ -182,16 +194,50 @@
                             </div>
 
                             <div class="col-12">
-                                <a href="#">Promena lozinke</a>
+                                <a href="#" data-toggle="modal" data-target="#exampleModal">Promena lozinke</a>
                             </div>
                         </div>
 
                         <hr>
-                        <button class="btn btn-lg">Zapamti</button>
+                        <button class="btn btn-lg" >Zapamti</button>
                     </form>
 
                 </div>
-        </div>
+            </div>
+        </>
     </div>
 </main>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Promena lozinke</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('updatePassword')}}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="currentPassword">Trenutna lozinka</label>
+                        <input type="password" class="form-control" id="currentPassword" name="currentPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">Lozinka</label>
+                        <input type="password" class="form-control" id="newPassword" name="newPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPasswordAgain">Lozinka opet</label>
+                        <input type="password" class="form-control" id="newPasswordAgain" name="newPasswordAgain">
+                    </div>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Odustani</button>
+                    <button type="submit" class="btn btn-primary">Zapamti</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @stop

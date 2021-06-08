@@ -41,4 +41,16 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Client\Profile');
     }
+
+    public function favorites()
+    {
+        return $this->belongsTo('App\Models\Client\Favorite');
+    }
+
+    public function products()
+    {
+        return $this->hasMany('App\Models\Client\Product');
+    }
+
+
 }

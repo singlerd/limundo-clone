@@ -19,22 +19,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //MAIN PAGE
-Route::post('getCategoriesMain', 'Client\MainController@getCategories');
-Route::post('getSubCategoriesWithProducts', 'Client\MainController@getSubCategoriesWithProducts');
-Route::post('getRecommendedProducts', 'Client\MainController@getRecommendedProducts');
+    Route::post('getCategoriesMain', 'Client\MainController@getCategories');
+    Route::post('getSubCategoriesWithProducts', 'Client\MainController@getSubCategoriesWithProducts');
+    Route::post('getRecommendedProducts', 'Client\MainController@getRecommendedProducts');
 
 //AUCTION PAGE
-Route::post('getSubCategories', 'Client\AuctionController@getSubCategories');
+    Route::post('getSubCategories', 'Client\AuctionController@getSubCategories');
 
 //CATEGORY PAGES
-Route::post('getProducts', 'Client\CategoryPages\PagesController@getProducts');
-Route::post('getProductsForWomen', 'Client\CategoryPages\PagesController@getProductsForWomen');
+    Route::post('getProducts', 'Client\CategoryPages\PagesController@getProducts');
+    Route::post('getProductsForWomen', 'Client\CategoryPages\PagesController@getProductsForWomen');
 
 //NEW AUCTION PAGE
-Route::post('addNewAuction', 'Client\NewAuctionController@addNewAuction');
-Route::post('listCategoriesForSelect', 'Client\NewAuctionController@listCategoriesForSelect');
-Route::post('listSubCategoriesForSelect', 'Client\NewAuctionController@listSubCategoriesForSelect');
+    Route::post('addNewAuction', 'Client\NewAuctionController@addNewAuction');
+    Route::post('listCategoriesForSelect', 'Client\NewAuctionController@listCategoriesForSelect');
+    Route::post('listSubCategoriesForSelect', 'Client\NewAuctionController@listSubCategoriesForSelect');
 
 //FAVORITES PAGE
-Route::post('addToFavorite', 'Client\FavoriteController@addToFavorite');
+    Route::post('addToFavorite', 'Client\FavoriteController@addToFavorite');
+    Route::post('checkFavorite', 'Client\FavoriteController@checkFavorite');
+    Route::post('deleteFromFavorites', 'Client\FavoriteController@deleteFromFavorites');
+
 

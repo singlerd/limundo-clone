@@ -1,5 +1,8 @@
 @extends('layouts.client')
 @section('content')
+{{--    @php--}}
+{{--        dd(auth()->id());--}}
+{{--    @endphp--}}
     <main role="main" class="container pt-2">
         <div class="row">
             <div class="col-3">
@@ -21,24 +24,36 @@
                     <div class="card-body">
                         <table class="table borderless table-hover">
                             <thead>
-                            <tbody>
                             <tr>
-                                <td scope="row">1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
+                                <th>Slika</th>
+                                <th>Naziv</th>
+                                <th>Stanje</th>
+                                <th>Cena</th>
+                                <th>Postavljeno</th>
+                                <th>Upravljaj</th>
                             </tr>
+                            </thead>
+                            <tbody>
+                            @forelse($favorites as $favorite)
+                                @foreach($favorite->products as $product)
+
+                                    <tr>
+                                        <td><img src="https://picsum.photos/100" alt="test"></td>
+                                        <td><a href="">{{$product->name}}</a></td>
+                                        <td>{{$product->product_state}}</td>
+                                        <td>{{$product->price}}</td>
+                                        <td>{{$product->created_at}}</td>
+                                        <td><button class="btn btn-danger" onclick="deleteFromFavorites({{$product->id}}, {{ auth()->id()}})">Ukloni</button></td>
+                                    </tr>
+                                @endforeach
+                            @empty
+                                <div class="alert alert-info">Nemaš omiljenih predmeta</div>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
 @stop
 

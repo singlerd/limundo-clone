@@ -10,4 +10,16 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Client\SubCategory');
     }
+
+    public function favorites()
+    {
+        return $this->belongsTo('App\Models\Client\Favorite');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+
 }

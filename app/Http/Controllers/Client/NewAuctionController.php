@@ -12,13 +12,15 @@ class NewAuctionController extends Controller
 {
     public function index()
     {
-        return view('client.new_auction');
+        $user_id = auth()->id();
+        return view('client.new_auction', ['user_id' => $user_id]);
     }
 
     public function addNewAuction(Request $request)
     {
         $product = new Product();
         $product->sub_category_id = $request->sub_category_id;
+        $product->user_id = $request->user_id;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->product_state = $request->product_state;
@@ -31,7 +33,13 @@ class NewAuctionController extends Controller
         //HANDLING MULTIPLE CHECKBOXES FOR PAYMENT METHODS
         $payment_arr = array();
         foreach ($request->payment_methods as $payment){
-            $payment_arr[] = $payment;
+//            $payment_arr[] = $payment;
+//            $product->payment_methods = json_encode($payment_arr);
+            $im = explode(',', $payment);
+            $payment_arr[] = [
+                'checkbox' => $im
+            ];
+
             $product->payment_methods = json_encode($payment_arr);
         }
 

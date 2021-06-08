@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
     //USER DATA
     Route::get('mojlimundo/mojprofil', 'Client\UserDataController@index')->name('showUserDataPage');
     Route::post('updateProfile/{id}', 'Client\UserDataController@updateProfile')->name('updateProfile');
+    Route::post('updatePassword', 'Client\UserDataController@updatePassword')->name('updatePassword');
 
     //NEW AUCTION
     Route::get('MojLimundo/NovaAukcija', 'Client\NewAuctionController@index')->name('showNewAuctionPage');

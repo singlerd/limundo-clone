@@ -93,7 +93,6 @@ submitNewAuctionBtnRef.addEventListener('click',  function (e){
     }
 
 
-
     //PRICE INPUT
     const errorPrice = document.getElementById('errorPrice');
     const priceInput = document.getElementById('price');
@@ -123,8 +122,9 @@ submitNewAuctionBtnRef.addEventListener('click',  function (e){
     }
     // console.log(payment_methods_checks)
     // console.log(sending_methods_checks)
-
+    let user_id = document.getElementById('userId').value;
     data.append('sub_category_id', sub_category_id);
+    data.append('user_id', user_id);
     data.append('name', name);
     data.append('description', description);
     data.append('product_state', product_state);

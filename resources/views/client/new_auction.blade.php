@@ -1,10 +1,14 @@
 @extends('layouts.client')
 @section('content')
+{{--    @php--}}
+{{--        dd($user_id);--}}
+{{--    @endphp--}}
     <main role="main" class="container pt-2">
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <form action="" id="newAuctionForm">
+                        <input type="hidden" value="{{$user_id}}" id="userId">
                         <div class="row p-5">
                                 <div class="col-12">
                                     <h6>Unesite nov predmet</h6>

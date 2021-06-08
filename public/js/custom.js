@@ -100,34 +100,98 @@ window.onload = function() {
 }
 
 
-let addToFavoriteRef = document.getElementById('addToFavorite');
-const addToFavoriteReq = new XMLHttpRequest();
+// let addToFavoriteRef = document.getElementById('addToFavorite');
+// const addToFavoriteReq = new XMLHttpRequest();
 
-//GET SUBCATEGORIES
-// addToFavoriteReq.open('POST', localApi+'addToFavorite')
-// addToFavoriteReq.send();
+let csrf = document.querySelector('meta[name="csrf-token"]').content;
+console.log(csrf);
+function addToFavorite(userId, productId){
 
-addToFavoriteRef.addEventListener('click', function () {
     let data = new FormData()
-    data.append('user_id', 1)
-    data.append('product_id', 1)
+    console.log(userId)
+    console.log(productId)
+    data.append('user_id', userId)
+    data.append('product_id', productId)
     // data.append('slug', 'slujhahsd');
     fetch(localApi + 'addToFavorite', {
-        headers: { "Content-Type": "application/json; charset=utf-8" },
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
         method: 'POST',
         body: data,
         mode: 'no-cors'
     }).then(response => response.json())
         .then(data => {
             // success
-            iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste dodali novi predmet.'});
+            iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste dodali omiljene predmete.'});
             window.setTimeout(function(){
                 // Move to a main page after 3 seconds
-                window.location.href = local + 'main';
-            }, 3000);
+                location.reload();
+            }, 1000);
         })
         .catch((error) => {
             // error
-            iziToast.error({title: 'Greška', message: 'Niste ispunili sva polja'});
+            iziToast.error({title: 'Greška', message: 'Došlo je do greške'});
         });
-});
+}
+
+function deleteFromFavorites(productId, userId) {
+    let data = new FormData()
+
+    console.log(userId)
+    data.append('product_id', productId)
+    data.append('user_id', userId)
+
+
+    fetch(localApi + 'deleteFromFavorites', {
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        method: 'POST',
+        body: data,
+        mode: 'no-cors'
+    }).then(response => response.json())
+        .then(data => {
+            // success
+            iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste ukloni predmet iz liste želja'});
+            window.setTimeout(function(){
+                // Move to a main page after 3 seconds
+               location.reload();
+            }, 1000);
+        })
+        .catch((error) => {
+            // error
+            iziToast.error({title: 'Greška', message: 'Došlo je do greške'});
+        });
+}
+
+function deleteFromFavorites(productId, userId) {
+    let data = new FormData()
+
+    console.log(userId)
+    data.append('product_id', productId)
+    data.append('user_id', userId)
+
+
+    fetch(localApi + 'deleteFromFavorites', {
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        method: 'POST',
+        body: data,
+        mode: 'no-cors'
+    }).then(response => response.json())
+        .then(data => {
+            // success
+            iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste ukloni predmet iz liste želja'});
+            window.setTimeout(function(){
+                // Move to a main page after 3 seconds
+                location.reload();
+            }, 1000);
+        })
+        .catch((error) => {
+            // error
+            iziToast.error({title: 'Greška', message: 'Došlo je do greške'});
+        });
+}
+
