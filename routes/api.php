@@ -40,4 +40,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post('checkFavorite', 'Client\FavoriteController@checkFavorite');
     Route::post('deleteFromFavorites', 'Client\FavoriteController@deleteFromFavorites');
 
+//PRODUCT PAGE
+    Route::post('sendMessage', 'Client\ProductController@sendMessage');
+
+//PURCHASE
+    Route::post('purchaseProduct', 'Client\PurchaseController@purchaseProduct');
+
 

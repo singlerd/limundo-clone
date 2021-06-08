@@ -106,7 +106,7 @@ window.onload = function() {
 let csrf = document.querySelector('meta[name="csrf-token"]').content;
 console.log(csrf);
 function addToFavorite(userId, productId){
-
+    const addToFavoriteBtn = document.getElementById('addToFavoriteBtn');
     let data = new FormData()
     console.log(userId)
     console.log(productId)
@@ -123,6 +123,7 @@ function addToFavorite(userId, productId){
     }).then(response => response.json())
         .then(data => {
             // success
+            addToFavoriteBtn.disabled = true;
             iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste dodali omiljene predmete.'});
             window.setTimeout(function(){
                 // Move to a main page after 3 seconds
@@ -135,35 +136,7 @@ function addToFavorite(userId, productId){
         });
 }
 
-function deleteFromFavorites(productId, userId) {
-    let data = new FormData()
 
-    console.log(userId)
-    data.append('product_id', productId)
-    data.append('user_id', userId)
-
-
-    fetch(localApi + 'deleteFromFavorites', {
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-        },
-        method: 'POST',
-        body: data,
-        mode: 'no-cors'
-    }).then(response => response.json())
-        .then(data => {
-            // success
-            iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste ukloni predmet iz liste želja'});
-            window.setTimeout(function(){
-                // Move to a main page after 3 seconds
-               location.reload();
-            }, 1000);
-        })
-        .catch((error) => {
-            // error
-            iziToast.error({title: 'Greška', message: 'Došlo je do greške'});
-        });
-}
 
 function deleteFromFavorites(productId, userId) {
     let data = new FormData()
@@ -195,3 +168,66 @@ function deleteFromFavorites(productId, userId) {
         });
 }
 
+function sendMessage(userId,receiverId){
+    let data = new FormData()
+
+    const message_title = document.getElementById('message_title').value;
+    const message_body = document.getElementById('message_body').value;
+
+    data.append('user_id', userId)
+    data.append('receiver_id', receiverId)
+    data.append('message_title', message_title)
+    data.append('message_body', message_body)
+
+    fetch(localApi + 'sendMessage', {
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        method: 'POST',
+        body: data,
+        mode: 'no-cors'
+    }).then(response => response.json())
+        .then(data => {
+            // success
+            iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste ukloni predmet iz liste želja'});
+            window.setTimeout(function(){
+                // Move to a main page after 3 seconds
+                location.reload();
+            }, 1000);
+        })
+        .catch((error) => {
+            // error
+            iziToast.error({title: 'Greška', message: 'Došlo je do greške'});
+        });
+}
+
+function purchaseProduct(userId, productId){
+    let data = new FormData()
+
+    const purchaseBtn = document.getElementById('purchaseBtn');
+
+    data.append('user_id', userId)
+    data.append('product_id', productId)
+
+    fetch(localApi + 'purchaseProduct', {
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        method: 'POST',
+        body: data,
+        mode: 'no-cors'
+    }).then(response => response.json())
+        .then(data => {
+            // success
+            purchaseBtn.disabled = true
+            iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'Uspešno', message: 'Uspešno ste ubacili predmet u korpu'});
+            window.setTimeout(function(){
+                // Move to a main page after 3 seconds
+                location.reload();
+            }, 3000);
+        })
+        .catch((error) => {
+            // error
+            iziToast.error({title: 'Greška', message: 'Došlo je do greške'});
+        });
+}

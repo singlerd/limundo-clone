@@ -31,23 +31,13 @@ class NewAuctionController extends Controller
         $product->slug = $replaceStr;
 
         //HANDLING MULTIPLE CHECKBOXES FOR PAYMENT METHODS
-        $payment_arr = array();
         foreach ($request->payment_methods as $payment){
-//            $payment_arr[] = $payment;
-//            $product->payment_methods = json_encode($payment_arr);
-            $im = explode(',', $payment);
-            $payment_arr[] = [
-                'checkbox' => $im
-            ];
-
-            $product->payment_methods = json_encode($payment_arr);
+            $product->payment_methods = $payment;
         }
 
         //HANDLING MULTIPLE CHECKBOXES FOR SENDING METHODS
-        $sending_arr = array();
         foreach ($request->sending_methods as $sending){
-            $sending_arr[] = $sending;
-            $product->sending_methods = json_encode($sending_arr);
+            $product->sending_methods = $sending;
         }
 
         //HANDLING MULTIPLE IMAGES

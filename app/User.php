@@ -52,5 +52,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Client\Product');
     }
 
+    public function privilege()
+    {
+        return $this->hasOne('App\Models\Client\Privilege');
+    }
+
 
 }

@@ -31,9 +31,11 @@
                                     </div>
                                 </div>
                             @else
+                                @auth
                                 <div class="col-12">
-                                    <button class="btn btn-light" onclick="addToFavorite({{$user_id}}, {{$productBySlug->id}})">Ubaci u listu želja</button>
+                                    <button class="btn btn-light" id="addToFavoriteBtn" onclick="addToFavorite({{$user_id}}, {{$productBySlug->id}})">Ubaci u listu želja</button>
                                 </div>
+                                @endauth
                             @endif
                         @endauth
                        <div class="col-12 pt-3">
@@ -50,7 +52,15 @@
                                    <div class="col-6">
                                    </div>
                                    <div class="col-6">
-                                       <button class="btn btn-primary">Kupi predmet</button>
+                                       @if($isPurchased)
+                                           <div class="alert alert-success">
+                                               Kupovina je u obradi
+                                           </div>
+                                       @else
+                                           @auth
+                                           <button class="btn btn-primary" id="purchaseBtn" onclick="purchaseProduct({{auth()->id()}}, {{$productBySlug->id}})">Kupi predmet</button>
+                                           @endauth
+                                       @endif
                                    </div>
                                </div>
                            </div>
@@ -61,23 +71,32 @@
                        </div>
                        <div class="col-6 pt-3">
                             @php
-                                json_decode($productBySlug->payment_methods)
+                               $sending_method = $productBySlug->sending_methods;
+                                $ex =   explode(",", $sending_method);
+                                 foreach ( $ex as $e)
+                                 {
+                                     echo $e . "</br >";
+                                 }
                             @endphp
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 pt-3">
                             <p>Plaćanje</p>
                         </div>
-                        <div class="col-6">
-                            <p>	Tekući račun (pre slanja)
-                                PostNet (pre slanja)
-                                Pouzećem
-                                Lično </p>
+                        <div class="col-6 pt-3">
+                            @php
+                                $payment_method = $productBySlug->payment_methods;
+                                $ex =   explode(",", $payment_method);
+                                 foreach ( $ex as $e)
+                                 {
+                                     echo $e . "</br >";
+                                 }
+                            @endphp
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 pt-3">
                             <p>Stanje</p>
                         </div>
-                        <div class="col-6">
-                            <p>Polovno</p>
+                        <div class="col-6 pt-3">
+                            <p>{{$productBySlug->product_state}}</p>
                         </div>
                         <div class="col-6">
                             <p>Garantni list:</p>
@@ -111,7 +130,9 @@
                         </div>
                         <div class="row pt-3">
                             <div class="col-12">
-                                <button class="btn btn-primary">Pošalji poruku</button>
+                                @auth
+                                 <button class="btn btn-primary" data-toggle="modal" data-target="#sendMessageModal">Pošalji poruku</button>
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -132,4 +153,38 @@
             </div>
         </div>
     </main>
+
+<!-- Modal -->
+<div class="modal fade" id="sendMessageModal" tabindex="-1" role="dialog" aria-labelledby="sendMessageModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Pošalji poruku</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <label for="receiver">Primalac</label>
+                        <input type="text" class="form-control" id="receiver" disabled value="{{$productBySlug->user->username}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="message_title">Naslov poruke</label>
+                        <input type="text" class="form-control" id="message_title">
+                    </div>
+                    <div class="form-group">
+                        <label for="message_body">Naslov poruke</label>
+                        <input type="text" class="form-control" id="message_body">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Odustani</button>
+                <button type="button" class="btn btn-primary" onclick="sendMessage({{auth()->id()}}, {{$productBySlug->user->id}})">Pošalji poruku</button>
+            </div>
+        </div>
+    </div>
+</div>
 @stop

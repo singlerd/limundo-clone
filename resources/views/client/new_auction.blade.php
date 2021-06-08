@@ -157,23 +157,23 @@
                                 <div class="col-6 pt-3" id="payment_methods">
                                     <h6>Načini plaćanja</h6>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="racun" value="racun">
+                                        <input type="checkbox" class="custom-control-input" id="racun" name="payment_methods" value="Tekuci racun (pre slanja)">
                                         <label class="custom-control-label" for="racun">Tekući račun (pre slanja)</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="postnet" name="payment_methods[]" value="postnet">
+                                        <input type="checkbox" class="custom-control-input" id="postnet" name="payment_methods" value="PostNet (pre slanja)">
                                         <label class="custom-control-label" for="postnet">PostNet (pre slanja)</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="other" name="payment_methods[]" value="other">
+                                        <input type="checkbox" class="custom-control-input" id="other" name="payment_methods" value="Ostalo (pre slanja)">
                                         <label class="custom-control-label" for="other">Ostalo (pre slanja)</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="take_it" name="payment_methods[]" value="take_it">
+                                        <input type="checkbox" class="custom-control-input" id="take_it" name="payment_methods" value="Pouzećem">
                                         <label class="custom-control-label" for="take_it">Pouzećem</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="personally" name="payment_methods[]" value="personally">
+                                        <input type="checkbox" class="custom-control-input" id="personally" name="payment_methods" value="Licno">
                                         <label class="custom-control-label" for="personally">Lično</label>
                                     </div>
                                 </div>
@@ -181,7 +181,7 @@
                                 <div class="col-6 pt-3 pb-5" id="sending_methods">
                                     <h6>Načini slanja</h6>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="aks" value="aks">
+                                        <input type="checkbox" class="custom-control-input" id="aks" value="AKS">
                                         <label class="custom-control-label" for="aks">AKS</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
@@ -193,7 +193,7 @@
                                         <label class="custom-control-label" for="city_express">City Express</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="posta" value="Pošta">
+                                        <input type="checkbox" class="custom-control-input" id="posta" value="Posta">
                                         <label class="custom-control-label" for="posta">Pošta</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">

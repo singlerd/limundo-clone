@@ -154,6 +154,7 @@ submitNewAuctionBtnRef.addEventListener('click',  function (e){
         });
 });
 
+
 //TODO with vanilla js
 $('#select2').hide()
 $("#select1").change(function() {
