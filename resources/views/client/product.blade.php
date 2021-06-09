@@ -5,16 +5,16 @@
 {{--    @endphp--}}
     <main role="main" class="container pt-2">
         <div class="row">
-            <div class="col-8">
+            <div class="col-md-8 col-sm-12">
                <div class="row">
-                    <div class="col-4">
+                    <div class="col-md-4 col-sm-12">
                         <div class="card">
                             <div class="card-body">
                                 <img class="rounded" src="https://picsum.photos/200" alt="Specific Image">
                             </div>
                         </div>
                     </div>
-                   <div class="col-8 ">
+                   <div class="col-md-8 col-sm-12">
                     <div class="row">
                         <div class="col-12">
                             <h3>{{$productBySlug->name}}</h3>
@@ -109,7 +109,7 @@
                </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-md-4 col-sm-12 pt-3">
                 <div class="card">
                     <div class="card-header">
                         Prodavac
@@ -139,7 +139,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row pt-3">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">

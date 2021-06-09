@@ -3,8 +3,8 @@
 <div class="card">
     <div class="card-body">
        <div class="row">
-           <div class="col-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto cum eaque iure nam necessitatibus repellat totam voluptates. Debitis et iste nihil totam voluptas. Error facilis hic in ipsa nihil officia perferendis suscipit tempora? Corporis non optio voluptatem? Amet deleniti dolorem eos harum, laborum magnam quibusdam sint soluta vero voluptate?</div>
-           <div class="col-4">
+           <div class="col-md-8 col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto cum eaque iure nam necessitatibus repellat totam voluptates. Debitis et iste nihil totam voluptas. Error facilis hic in ipsa nihil officia perferendis suscipit tempora? Corporis non optio voluptatem? Amet deleniti dolorem eos harum, laborum magnam quibusdam sint soluta vero voluptate?</div>
+           <div class="col-md-4 col-sm-12">
                <img class="rounded float-right" src="https://picsum.photos/200" alt="Specific Image">
            </div>
        </div>
@@ -76,40 +76,6 @@
                 </div>
             </div>
             <div class="row" id="getRecommendedProductsMain">
-
-{{--                <div class="col-4">--}}
-{{--                    <div class="row text-center">--}}
-{{--                        <div class="col-12 pt-3">--}}
-{{--                            <img class="rounded" src="https://picsum.photos/100" alt="Specific Image">--}}
-{{--                        </div>--}}
-{{--                        <div class="col-12 pt-2">--}}
-{{--                            <a href="#">Biciikl</a>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-12 pt-2 money">--}}
-{{--                            <strong>100 din</strong>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-12 pt-2">--}}
-{{--                            <strong>20 ponude</strong>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-4">--}}
-{{--                    <div class="row text-center">--}}
-{{--                        <div class="col-12 pt-3">--}}
-{{--                            <img class="rounded" src="https://picsum.photos/100" alt="Specific Image">--}}
-{{--                        </div>--}}
-{{--                        <div class="col-12 pt-2">--}}
-{{--                            <a href="#">Biciikl</a>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-12 pt-2 money">--}}
-{{--                            <strong>100 din</strong>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-12 pt-2">--}}
-{{--                            <strong>20 ponude</strong>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
         </div>
     </div>

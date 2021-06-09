@@ -32,10 +32,10 @@ getProductsReq.addEventListener('load', function (){
             `
              <div class="card mt-1">
                 <div class="row d-flex">
-                    <div class="col-4 p-3">
-                        <img src="https://picsum.photos/seed/picsum/200/300" alt="product_image" height="200" width="200">
+                    <div class="col-md-4 col-sm-12 p-3">
+                        <img src="https://picsum.photos/seed/picsum/100/300" alt="product_image" height="200" width="200">
                     </div>
-                    <div class="col-6 p-3 text-left">
+                    <div class="col-md-6 col-sm-12 p-3 text-left">
                         <h6 class="pt-2"><a href="kupovina/${data[i].slug}">${data[i].name}</a></h6>
                         <p class="text-grey">${data[i].description}... <a href="#">Detaljnije</a></p>
 
@@ -45,7 +45,7 @@ getProductsReq.addEventListener('load', function (){
                             <h6 class="d-inline text-grey">din</h6>
                         </div>
                     </div>
-                    <div class="col-2 pt-4 text-left">
+                    <div class="col-md-2 col-sm-12 pt-4 text-left">
                         <div class="row">
                             <div class="col-12">
                                 <i class="far fa-clock icons"></i>

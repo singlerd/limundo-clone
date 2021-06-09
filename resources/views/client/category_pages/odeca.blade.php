@@ -1,9 +1,9 @@
 @extends('layouts.client')
 @section('content')
 
-<main role="main" class="container pt-2">
+<main role="main" class="container pt-3">
         <div class="row">
-            <div class="col-3">
+            <div class="col-md-3 col-sm-12">
                 <div class="navigation text-left">
                     {{--START SPINNER--}}
                     <div class="text-center">
@@ -16,7 +16,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-9">
+            <div class="col-md-9 col-sm-12 pt-3">
 
                 <div class="col-12 text-left pb-3">
                     <h3>Odeća</h3>
@@ -32,19 +32,19 @@
                             <div class="card-body back-grey">
                                 <form action="#">
                                     <div class="form-row">
-                                        <div class="col-4 form-group">
+                                        <div class="col-md-4 col-sm-12 form-group">
                                             <label for="detail_search" class="label-grey"><strong>Detaljna pretraga</strong></label>
                                             <input type="text" class="form-control" id="detail_search" name="detail_search">
                                         </div>
-                                        <div class="col-4 form-group">
+                                        <div class="col-md-4 col-sm-12 form-group">
                                             <label for="seller" class="label-grey"><strong>Prodavac</strong></label>
                                             <input type="text" class="form-control" id="seller" name="seller">
                                         </div>
-                                        <div class="col-2 form-group">
+                                        <div class="col-md-2 col-sm-12 form-group">
                                             <label for="price_from" class="label-grey"><strong>Cena</strong></label>
                                             <input type="text" class="form-control" id="price_from" name="price_from" placeholder="od">
                                         </div>
-                                        <div class="col-2 form-group">
+                                        <div class="col-md-2 col-sm-12 form-group">
                                             <label for="price_from" class="label-grey"><strong>Cena</strong></label>
                                             <input type="text" class="form-control" id="price_to" name="price_to" placeholder="do">
                                         </div>

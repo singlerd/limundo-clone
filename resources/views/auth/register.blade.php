@@ -80,7 +80,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Država:') }}</label>
 
-                            <div class="col-md-6" >
+                            <div class="col-md-6">
                                 <select class="form-control" id="exampleFormControlSelect1" name="country">
                                     <option>Srbija</option>
                                     <option>Hrvatska</option>
@@ -166,7 +166,7 @@
             </div>
         </div>
 
-        <div class="col-4 pt-5">
+        <div class="col-md-4 col-sm-12 pt-5 pb-5">
             <div class="card">
                 <div class="card-header">{{ __('Lepe želje od naših korisnika') }}</div>
 

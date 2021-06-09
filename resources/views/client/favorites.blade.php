@@ -3,9 +3,9 @@
 {{--    @php--}}
 {{--        dd(auth()->id());--}}
 {{--    @endphp--}}
-    <main role="main" class="container pt-2">
+    <main role="main" class="container pt-3">
         <div class="row">
-            <div class="col-3">
+            <div class="col-md-3 col-sm-12">
                 <div class="card">
                     <div class="card-header back-gradient-green text-white">
                         <h6 class="text-to-uppercase">MOJ LIMUNDO</h6>
@@ -16,13 +16,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-9">
+            <div class="col-md-9 col-sm-12 pt-3 pb-3">
                 <div class="card">
                     <div class="card-header back-gradient-grey text-white">
                         <h6 class="text-to-uppercase">PREDMETI KOJE POSMATRATE</h6>
                     </div>
                     <div class="card-body">
-                        <table class="table borderless table-hover">
+                        <table class="table borderless table-hover table-responsive-sm">
                             <thead>
                             <tr>
                                 <th>Slika</th>

@@ -9,29 +9,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand mr-auto mr-lg-0 logo" href="{{route('showMainPage')}}"><img src="{{asset('/img/logo.png')}}" alt="limundo-logo"></a>
-        <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-
-            <div class="collapse navbar-collapse flex-grow-0">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('showAuctionPage')}}">Kupi</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Moj Limundo</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="{{route('showFavoritesPage')}}">Lista želja</a>
-                            <a class="dropdown-item" href="{{route('showUserDataPage')}}">Moji podaci</a>
-                            <a class="dropdown-item" href="#">Račun</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pomoć</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('showAuctionPage')}}">Kupi</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Moj Limundo</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="{{route('showFavoritesPage')}}">Lista želja</a>
+                        <a class="dropdown-item" href="{{route('showUserDataPage')}}">Moji podaci</a>
+                        <a class="dropdown-item" href="#">Račun</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pomoć</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -40,12 +37,10 @@
 {{--START SECOND NAVIGATION--}}
 <nav class="navbar navbar-expand-lg navbar-light bg-grey">
     <div class="container">
-        <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#secondNavbar" aria-controls="secondNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-
-            <div class="collapse navbar-collapse flex-grow-0">
+        <div class="collapse navbar-collapse" id="secondNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('showNewAuctionPage')}}"><button class="btn btn-danger">Besplatno postavi predmet</button></a>
@@ -85,7 +80,6 @@
                     @endguest
                 </ul>
             </div>
-        </div>
     </div>
 </nav>
 {{--END SECOND NAVIGATION--}}
@@ -95,7 +89,7 @@
         <div class="text-center pt-5">
             <div class="row">
                 {{--START NAVIGATION FOR CATEGORIES--}}
-                <div class="col-2 text-center p-0 m-0">
+                <div class="col-md-2 text-center p-0 m-0 col-sm-12">
                     {{--START SPINNER--}}
                     <div class="text-center">
                         <div class="lds-ripple" id="isSpinSubCategoryLinksMain"><div></div><div></div></div>
@@ -110,11 +104,11 @@
                     </div>
                 </div>
                 {{--END NAVIGATION FOR CATEGORIES--}}
-                <div class="col-8">
+                <div class="col-md-8 col-sm-12">
                     {{--YIELD CONTENT FROM OTHER BLADE FILE--}}
                     @yield('content')
                 </div>
-                <div class="col-2 p-0 m-0">
+                <div class="col-md-2 p-0 m-0 col-sm-12">
                     <div class="tips">
                         <div class="row text-left">
                             <div class="col-12">
